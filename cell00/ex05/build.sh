@@ -6,12 +6,7 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-# Print up to 3 arguments, one per line
-count=0
+# Create directories with prefix "ex"
 for arg in "$@"; do
-    echo "$arg"
-    count=$((count + 1))
-    if [ $count -ge 3 ]; then
-        break
-    fi
+    mkdir "ex$arg"
 done
