@@ -20,8 +20,18 @@
             align-items: flex-start
 
         }
+        .table-box {
+            border: 3px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .table-row {
+            display: flex;
+        }
         .box-1{
-            width: 200px;
+            width: 450px;
             height: 200px;
             background-color: greenyellow;
             display: flex;
@@ -31,7 +41,7 @@
             border-radius: 10px;
         }
         .box-2{
-            width: 200px;
+            width: 450px;
             height: 200px;
             background-color: lightcoral;
             display: flex;
@@ -44,8 +54,12 @@
 </head>
 <body>
     <div class="container">
+        <div class="table-box">
+            <div class="table-row">
         <div class="box-1">Fist cell </div>
         <div class="box-2">Second cell</div>
+        </div>
+        </div>
     </div>
 </body>
 </html>
