@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body *{
+body *{
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -50,16 +43,3 @@
             font-size: 20px;
             border-radius: 10px;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="table-box">
-            <div class="table-row">
-        <div class="box-1">Fist cell </div>
-        <div class="box-2">Second cell</div>
-        </div>
-        </div>
-    </div>
-</body>
-</html>
