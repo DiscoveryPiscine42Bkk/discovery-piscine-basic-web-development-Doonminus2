@@ -5,7 +5,7 @@ function saveTodos() {
     const text = todo.querySelector('.text');
     if (text) todos.push(text.textContent);
   });
-  // คุณสามารถใช้ localStorage.setItem(...) ได้ถ้าอยากเก็บจริง
+  
 }
 
 function addTodo(text, save = true) {
@@ -37,7 +37,7 @@ function addTodo(text, save = true) {
   div.appendChild(span);
   div.appendChild(removeBtn);
 
-  // ถ้าอยากให้คลิกที่ todo ก็ทำอะไรเพิ่มเติมได้ที่นี่
+
 
   ft_list.insertBefore(div, ft_list.firstChild);
 
