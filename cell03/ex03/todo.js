@@ -1,31 +1,53 @@
 function saveTodos() {
   const todos = [];
   document.querySelectorAll('#ft_list .todo').forEach(todo => {
-    todos.push(todo.textContent);
+    // ดึงเฉพาะข้อความ (ไม่รวมปุ่ม)
+    const text = todo.querySelector('.text');
+    if (text) todos.push(text.textContent);
   });
+  // คุณสามารถใช้ localStorage.setItem(...) ได้ถ้าอยากเก็บจริง
 }
 
 function addTodo(text, save = true) {
   if (!text) return;
+
   const ft_list = document.getElementById('ft_list');
   const div = document.createElement('div');
   div.className = 'todo';
-  div.textContent = text;
-  div.onclick = function() {
+
+  // สร้าง span สำหรับข้อความ
+  const span = document.createElement('span');
+  span.className = 'text';
+  span.textContent = text;
+
+  // สร้างปุ่มลบ
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = '🗑️';
+  removeBtn.style.marginLeft = '12px';
+  removeBtn.style.float = 'right';
+  removeBtn.onclick = function (e) {
+    e.stopPropagation(); // ป้องกันไม่ให้ trigger event อื่น
     if (confirm('Do you want to remove this TO DO?')) {
       div.remove();
       saveTodos();
     }
   };
+
+  // เพิ่ม span และปุ่มเข้าไปใน div
+  div.appendChild(span);
+  div.appendChild(removeBtn);
+
+  // ถ้าอยากให้คลิกที่ todo ก็ทำอะไรเพิ่มเติมได้ที่นี่
+
   ft_list.insertBefore(div, ft_list.firstChild);
+
   if (save) saveTodos();
 }
 
-document.getElementById('new-btn').onclick = function() {
+document.getElementById('new-btn').onclick = function () {
   const text = prompt('Enter a new TO DO:');
   if (text && text.trim() !== '') {
     addTodo(text.trim());
   }
 };
 
-window.onload = loadTodos;
